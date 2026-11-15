@@ -288,7 +288,7 @@ data-en-placeholder="Search movies or dramas..."
 
   <div class="movies" id="movieList">
 
-    <div class="movie" data-country="भारत" data-genre="ड्रामा">
+    <div class="movie" data-country="भारत" data-genre="ड्रामा" data-year="2016">
   <img src="https://m.media-amazon.com/images/M/MV5BYTkwMzQwNzItZjA0ZC00Y2U1LWE4YjAtNjdiNjU4ODg2ODY3XkEyXkFqcGc@._V1_.jpg" alt="Dangal Poster">
   <h3>दंगल</h3>
   <p>भारत की प्रेरणादायक खेल आधारित फिल्म।</p>
@@ -296,7 +296,7 @@ data-en-placeholder="Search movies or dramas..."
       <button class="details-btn">More Details</button>
     </div>
 
-    <div class="movie" data-country="अमेरिका" data-genre="एनीमेशन">
+    <div class="movie" data-country="अमेरिका" data-genre="एनीमेशन" data-year="2008">
       <img src="https://www.dreamworks.com/storage/movies/kung-fu-panda/kung-fu-panda-hero-image.jpg" alt="Kung Fu Panda Poster">
       <h3>Kung Fu Panda</h3>
       <p>एक पांडा की रोमांचक और मजेदार यात्रा।</p>
@@ -305,14 +305,14 @@ data-en-placeholder="Search movies or dramas..."
   
     </div>
 
-    <div class="movie" data-country="भारत" data-genre="फैंटेसी">
+    <div class="movie" data-country="भारत" data-genre="फैंटेसी" data-year="2015">
       <h3>Baahubali</h3>
       <p>राज्य, परिवार और साहस की भव्य कहानी।</p>
       <span class="tag">भारत | फैंटेसी</span>
       <button class="details-btn">More Details</button>
     </div>
 
-    <div class="movie" data-country="दक्षिण कोरिया" data-genre="थ्रिलर">
+    <div class="movie" data-country="दक्षिण कोरिया" data-genre="थ्रिलर" data-year="2016">
       <h3>Train to Busan</h3>
       <p>दक्षिण कोरिया की एक रोमांचक सर्वाइवल कहानी।</p>
       <span class="tag">कोरिया | थ्रिलर</span>
@@ -398,7 +398,18 @@ document.querySelectorAll(".details-btn").forEach(button => {
     }
 
     document.getElementById("popupTitle").innerText = movieName;
+    const movieYear = this.parentElement.dataset.year || "जानकारी जल्द उपलब्ध होगी";
 
+document.getElementById("popupYear").innerText =
+  "रिलीज़ वर्ष: " + movieYear;
+    const movieCountry = this.parentElement.dataset.country;
+const movieGenre = this.parentElement.dataset.genre;
+
+document.getElementById("popupCountry").innerText =
+  "देश: " + movieCountry;
+
+document.getElementById("popupGenre").innerText =
+  "Genre: " + movieGenre;
     document.getElementById("popupDescription").innerText =
       movieName + " की पूरी जानकारी जल्द उपलब्ध होगी!";
 
@@ -413,6 +424,9 @@ document.querySelectorAll(".details-btn").forEach(button => {
   <div class="popup-content">
     <span class="close-popup" onclick="closePopup()">×</span>
     <h2 id="popupTitle"></h2>
+    <p id="popupYear"></p>
+    <p id="popupCountry"></p>
+<p id="popupGenre"></p>
     <img id="popupPoster" src="" alt="Movie Poster">
     <p id="popupDescription"></p>
   </div>
