@@ -39,6 +39,15 @@
   color: #ffb52e;
   cursor: pointer;
 }
+  #popupPoster {
+  width: 100%;
+  max-width: 220px;
+  height: 280px;
+  object-fit: contain;
+  display: block;
+  margin: 15px auto;
+  border-radius: 12px;
+  }
 * {
   margin: 0;
   padding: 0;
@@ -373,19 +382,29 @@ document.getElementById("languageSelect")
   .addEventListener("change", changeLanguage);
 
 changeLanguage();
- document.querySelectorAll(".details-btn").forEach(button => {
+document.querySelectorAll(".details-btn").forEach(button => {
   button.addEventListener("click", function() {
-    const movieName = this.parentElement.querySelector("h3").innerText;
-    alert(movieName + " की पूरी जानकारी जल्द उपलब्ध होगी!");
+
     const movieName = this.parentElement.querySelector("h3").innerText;
 
-document.getElementById("popupTitle").innerText = movieName;
-document.getElementById("popupDescription").innerText =
-  movieName + " की पूरी जानकारी जल्द उपलब्ध होगी!";
+    const cardPoster = this.parentElement.querySelector("img");
+    const popupPoster = document.getElementById("popupPoster");
 
-document.getElementById("moviePopup").style.display = "flex";
+    if (cardPoster) {
+      popupPoster.src = cardPoster.src;
+      popupPoster.style.display = "block";
+    } else {
+      popupPoster.style.display = "none";
+    }
+
+    document.getElementById("popupTitle").innerText = movieName;
+
+    document.getElementById("popupDescription").innerText =
+      movieName + " की पूरी जानकारी जल्द उपलब्ध होगी!";
+
+    document.getElementById("moviePopup").style.display = "flex";
   });
-});  
+});
   function closePopup() {
   document.getElementById("moviePopup").style.display = "none";
   }
@@ -394,6 +413,7 @@ document.getElementById("moviePopup").style.display = "flex";
   <div class="popup-content">
     <span class="close-popup" onclick="closePopup()">×</span>
     <h2 id="popupTitle"></h2>
+    <img id="popupPoster" src="" alt="Movie Poster">
     <p id="popupDescription"></p>
   </div>
 </div>
