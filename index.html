@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CineKhoj - दुनिया भर की फिल्में और ड्रामा</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #101018;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background: #191923;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.logo {
+  color: #ffb52e;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 8px;
+}
+
+.hero {
+  padding: 65px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #30204b, #111827);
+}
+
+.hero h1 {
+  font-size: 38px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  color: #ddd;
+  margin-bottom: 25px;
+}
+
+.search {
+  padding: 13px;
+  width: 90%;
+  max-width: 450px;
+  border-radius: 25px;
+  border: none;
+  font-size: 16px;
+}
+
+main {
+  padding: 25px 18px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #ffb52e;
+}
+
+.movies {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 18px;
+}
+
+.movie {
+  background: #20202c;
+  padding: 22px;
+  border-radius: 12px;
+  border: 1px solid #353545;
+}
+
+.movie h3 {
+  margin-bottom: 10px;
+}
+
+.movie p {
+  color: #ccc;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.tag {
+  display: inline-block;
+  color: #ffb52e;
+  margin-top: 12px;
+  font-size: 13px;
+}
+
+footer {
+  background: #191923;
+  padding: 25px;
+  text-align: center;
+  color: #aaa;
+  margin-top: 40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">CineKhoj 🎬</div>
+  <nav>
+    <a href="#">होम</a>
+    <a href="#movies">फिल्में</a>
+    <a href="#series">ड्रामा</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>दुनिया भर का मनोरंजन, एक जगह</h1>
+  <p>अपनी अगली पसंदीदा फिल्म और ड्रामा खोजें।</p>
+  <input
+    class="search"
+    type="search"
+    placeholder="फिल्म या ड्रामा खोजें..."
+    oninput="searchMovies(this.value)"
+  >
+</section>
+
+<main id="movies">
+  <h2>🌟 लोकप्रिय फिल्में</h2>
+
+  <div class="movies" id="movieList">
+
+    <div class="movie">
+      <h3>दंगल</h3>
+      <p>भारत की प्रेरणादायक खेल आधारित फिल्म।</p>
+      <span class="tag">भारत | ड्रामा</span>
+    </div>
+
+    <div class="movie">
+      <h3>Kung Fu Panda</h3>
+      <p>एक पांडा की रोमांचक और मजेदार यात्रा।</p>
+      <span class="tag">अमेरिका | एनीमेशन</span>
+    </div>
+
+    <div class="movie">
+      <h3>Baahubali</h3>
+      <p>राज्य, परिवार और साहस की भव्य कहानी।</p>
+      <span class="tag">भारत | फैंटेसी</span>
+    </div>
+
+    <div class="movie">
+      <h3>Train to Busan</h3>
+      <p>दक्षिण कोरिया की एक रोमांचक सर्वाइवल कहानी।</p>
+      <span class="tag">कोरिया | थ्रिलर</span>
+    </div>
+
+  </div>
+</main>
+
+<section id="series" style="padding: 20px;">
+  <h2>📺 वेब सीरीज और ड्रामा</h2>
+  <p style="color:#ccc;">
+    जल्द ही दुनिया भर के नए ड्रामा यहाँ मिलेंगे।
+  </p>
+</section>
+
+<footer>
+  <p>© 2026 CineKhoj | मनोरंजन की दुनिया खोजें</p>
+</footer>
+
+<script>
+function searchMovies(value) {
+  const cards = document.querySelectorAll(".movie");
+
+  cards.forEach(card => {
+    const text = card.innerText.toLowerCase();
+    card.style.display =
+      text.includes(value.toLowerCase()) ? "block" : "none";
+  });
+}
+</script>
+
+</body>
+</html>
