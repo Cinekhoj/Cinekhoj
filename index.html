@@ -396,7 +396,20 @@ document.querySelectorAll(".details-btn").forEach(button => {
     } else {
       popupPoster.style.display = "none";
     }
+const trailerVideos = {
+  "दंगल": "https://www.youtube-nocookie.com/embed/x_7YlGv9u1g",
+  "Train to Busan": "https://www.youtube-nocookie.com/embed/nZ4RrvafmZY"
+};
 
+const trailer = document.getElementById("popupTrailer");
+
+if (trailerVideos[movieName]) {
+  trailer.src = trailerVideos[movieName];
+  trailer.style.display = "block";
+} else {
+  trailer.src = "";
+  trailer.style.display = "none";
+  }
     document.getElementById("popupTitle").innerText = movieName;
     const movieYear = this.parentElement.dataset.year || "जानकारी जल्द उपलब्ध होगी";
 
@@ -418,6 +431,7 @@ document.getElementById("popupGenre").innerText =
 });
   function closePopup() {
   document.getElementById("moviePopup").style.display = "none";
+  document.getElementById("popupTrailer").src = "";
   }
 </script>
 <div id="moviePopup" class="popup">
@@ -428,6 +442,17 @@ document.getElementById("popupGenre").innerText =
     <p id="popupCountry"></p>
 <p id="popupGenre"></p>
     <img id="popupPoster" src="" alt="Movie Poster">
+    <iframe
+  id="popupTrailer"
+  width="100%"
+  height="220"
+  src=""
+  title="Movie Trailer"
+  frameborder="0"
+  allow="autoplay; encrypted-media; picture-in-picture"
+  allowfullscreen
+  style="display:none; border-radius:12px; margin-top:15px;">
+    </iframe>
     <p id="popupDescription"></p>
   </div>
 </div>
