@@ -218,15 +218,25 @@ footer {
 </footer>
 
 <script>
-function searchMovies(value) {
-  const cards = document.querySelectorAll(".movie");
 
-  cards.forEach(card => {
+function filterMovies() {
+  const search = document.querySelector(".search").value.toLowerCase();
+  const country = document.getElementById("countryFilter").value;
+  const genre = document.getElementById("genreFilter").value;
+
+  document.querySelectorAll(".movie").forEach(card => {
     const text = card.innerText.toLowerCase();
+
+    const matchesSearch = text.includes(search);
+    const matchesCountry = !country || card.dataset.country === country;
+    const matchesGenre = !genre || card.dataset.genre === genre;
+
     card.style.display =
-      text.includes(value.toLowerCase()) ? "block" : "none";
+      matchesSearch && matchesCountry && matchesGenre
+      ? "block" : "none";
   });
 }
+  
 </script>
 
 </body>
