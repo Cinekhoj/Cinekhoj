@@ -6,6 +6,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CineKhoj - दुनिया भर की फिल्में और ड्रामा</title>
 
+.movie img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.movie {
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.movie:hover {
+  transform: translateY(-5px);
+}
+  
 <style>
 * {
   margin: 0;
@@ -212,9 +230,10 @@ data-en-placeholder="Search movies or dramas..."
   <div class="movies" id="movieList">
 
     <div class="movie" data-country="भारत" data-genre="ड्रामा">
-      <h3>दंगल</h3>
-      <p>भारत की प्रेरणादायक खेल आधारित फिल्म।</p>
-      <span class="tag">भारत | ड्रामा</span>
+  <img src="https://image.tmdb.org/t/p/w500/1dMMv9u0hQp0g0z5V5p5j5j5j5j.jpg" alt="Dangal Poster">
+  <h3>दंगल</h3>
+  <p>भारत की प्रेरणादायक खेल आधारित फिल्म।</p>
+  <span class="tag">भारत | ड्रामा</span>
     </div>
 
     <div class="movie" data-country="अमेरिका" data-genre="एनीमेशन">
