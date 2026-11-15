@@ -150,19 +150,19 @@ footer {
     class="search"
     type="search"
     placeholder="फिल्म या ड्रामा खोजें..."
-    oninput="searchMovies(this.value)"
+    oninput="filterMovies()"
   >
  
 <div class="filters">
 
-  <select id="countryFilter">
+  <select id="countryFilter" onchange="filterMovies()">
     <option value="">सभी देश</option>
     <option value="भारत">भारत</option>
     <option value="अमेरिका">अमेरिका</option>
     <option value="दक्षिण कोरिया">दक्षिण कोरिया</option>
   </select>
 
-  <select id="genreFilter">
+  <select id="genreFilter" onchange="filterMovies()">
     <option value="">सभी Genre</option>
     <option value="ड्रामा">ड्रामा</option>
     <option value="एनीमेशन">एनीमेशन</option>
