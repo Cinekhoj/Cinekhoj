@@ -160,7 +160,22 @@ footer {
   font-size: 14px;
   cursor: pointer;
 }
-  
+.details-btn {
+  background: #ffb52e;
+  color: #101018;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 12px;
+  transition: 0.3s;
+}
+
+.details-btn:hover {
+  background: white;
+  transform: scale(1.05);
+}  
 </style>
 </head>
 
@@ -237,12 +252,14 @@ data-en-placeholder="Search movies or dramas..."
   <h3>दंगल</h3>
   <p>भारत की प्रेरणादायक खेल आधारित फिल्म।</p>
   <span class="tag">भारत | ड्रामा</span>
+      <button class="details-btn">More Details</button>
     </div>
 
     <div class="movie" data-country="अमेरिका" data-genre="एनीमेशन">
       <h3>Kung Fu Panda</h3>
       <p>एक पांडा की रोमांचक और मजेदार यात्रा।</p>
       <span class="tag">अमेरिका | एनीमेशन</span>
+      <button class="details-btn">More Details</button>
       <img src="https://www.dreamworks.com/storage/movies/kung-fu-panda/kung-fu-panda-hero-image.jpg" alt="Kung Fu Panda Poster">
     </div>
 
@@ -250,12 +267,14 @@ data-en-placeholder="Search movies or dramas..."
       <h3>Baahubali</h3>
       <p>राज्य, परिवार और साहस की भव्य कहानी।</p>
       <span class="tag">भारत | फैंटेसी</span>
+      <button class="details-btn">More Details</button>
     </div>
 
     <div class="movie" data-country="दक्षिण कोरिया" data-genre="थ्रिलर">
       <h3>Train to Busan</h3>
       <p>दक्षिण कोरिया की एक रोमांचक सर्वाइवल कहानी।</p>
       <span class="tag">कोरिया | थ्रिलर</span>
+      <button class="details-btn">More Details</button>
     </div>
 
   </div>
@@ -321,7 +340,12 @@ document.getElementById("languageSelect")
   .addEventListener("change", changeLanguage);
 
 changeLanguage();
-    
+ document.querySelectorAll(".details-btn").forEach(button => {
+  button.addEventListener("click", function() {
+    const movieName = this.parentElement.querySelector("h3").innerText;
+    alert(movieName + " की पूरी जानकारी जल्द उपलब्ध होगी!");
+  });
+});   
 </script>
 
 </body>
