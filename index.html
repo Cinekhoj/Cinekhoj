@@ -439,7 +439,24 @@ document.getElementById("popupGenre").innerText =
 
 document.getElementById("popupDescription").innerText =
   movieStories[movieName] || "कहानी जल्द उपलब्ध होगी।";
+const movieDetails = {
+  "दंगल": {
+    director: "नितेश तिवारी",
+    cast: "आमिर खान, फातिमा सना शेख, सान्या मल्होत्रा, साक्षी तंवर",
+    rating: "8.3/10"
+  }
+};
 
+const details = movieDetails[movieName];
+
+document.getElementById("popupDirector").innerText =
+  "निर्देशक: " + (details ? details.director : "जल्द उपलब्ध होगा");
+
+document.getElementById("popupCast").innerText =
+  "कलाकार: " + (details ? details.cast : "जल्द उपलब्ध होंगे");
+
+document.getElementById("popupRating").innerText =
+  "IMDb रेटिंग: " + (details ? details.rating : "उपलब्ध नहीं");
     document.getElementById("moviePopup").style.display = "flex";
   });
 });
@@ -468,6 +485,9 @@ document.getElementById("popupDescription").innerText =
   style="display:none; border-radius:12px; margin-top:15px;">
     </iframe>
     <p id="popupDescription"></p>
+    <p id="popupDirector"></p>
+<p id="popupCast"></p>
+<p id="popupRating"></p>
   </div>
 </div>
 </body>
