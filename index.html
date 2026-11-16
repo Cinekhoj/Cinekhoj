@@ -447,18 +447,31 @@ const movieDetails = {
   }
 };
 
-const details = movieDetails[movieName];
+const movieDetails = {
+  "दंगल": {
+    director: "नितेश तिवारी",
+    cast: "आमिर खान, फातिमा सना शेख, सान्या मल्होत्रा, साक्षी तंवर",
+    rating: "8.3/10"
+  },
 
-document.getElementById("popupDirector").innerText =
-  "निर्देशक: " + (details ? details.director : "जल्द उपलब्ध होगा");
+  "Kung Fu Panda": {
+    director: "Mark Osborne, John Stevenson",
+    cast: "Jack Black, Angelina Jolie, Jackie Chan, Dustin Hoffman",
+    rating: "7.6/10"
+  },
 
-document.getElementById("popupCast").innerText =
-  "कलाकार: " + (details ? details.cast : "जल्द उपलब्ध होंगे");
+  "Baahubali": {
+    director: "S. S. Rajamouli",
+    cast: "Prabhas, Rana Daggubati, Anushka Shetty, Tamannaah Bhatia",
+    rating: "8.0/10"
+  },
 
-document.getElementById("popupRating").innerText =
-  "IMDb रेटिंग: " + (details ? details.rating : "उपलब्ध नहीं");
-    document.getElementById("moviePopup").style.display = "flex";
-  });
+  "Train to Busan": {
+    director: "Yeon Sang-ho",
+    cast: "Gong Yoo, Jung Yu-mi, Ma Dong-seok, Kim Su-an",
+    rating: "7.6/10"
+  }
+};
 });
   function closePopup() {
   document.getElementById("moviePopup").style.display = "none";
